@@ -1,0 +1,25 @@
+kd:meta version=1.0.0-beta
+
+# A KD schema provides a set of tag definitions and specifies one as the root via
+# the @Root annotation.
+
+/**
+ * This `Purchase` tag has a single String value for the product name, and two
+ * attributes: `quantity` and `shipping`. Shipping has a default value `true` so it is
+ * optional when writing KD for this schema.
+ */
+tag Purchase String quantity=Int shipping=true
+
+tag Purchases { Purchase 0.._ } # Zero or more purchase tags
+
+/**
+ * This `Customer` tag has an Int id value, two attributes.
+ */
+tag Customer Int name=String premium=false {
+
+    // Child tags
+    Purchases 0..1 # A Customer tag has an optional Purchases tag child
+}
+
+# A customers tag contains zero or more customer tags
+@Root tag Customers { Customer 0.._ }
