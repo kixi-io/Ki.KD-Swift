@@ -1,12 +1,12 @@
 import Antlr4
 
+// We just got the Parser working. Now its time to implement the Interpreter.
+
 class Interpreter {
     var lexer: KDLexer
     var parser: KDParser
     
     init(_ stream: CharStream) throws {
-        
-        print("I'm here!")
         
         lexer = KDLexer(stream)
         
