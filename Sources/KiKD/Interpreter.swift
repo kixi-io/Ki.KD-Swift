@@ -202,6 +202,7 @@ class Interpreter {
         //// Ranges --- --- TODO
         //// Lists --- --- TODO
         //// Maps --- --- TODO
+        //// Pairs --- --- TODO
         
         throw ParseError("Unknown literal \(text)")
     }
