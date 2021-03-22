@@ -61,7 +61,7 @@ class Interpreter {
             }
         }
 
-        var tag = Tag(name, namespace:namespace)
+        let tag = Tag(name, namespace:namespace)
         
         // Add Annotations ////
         let annotationCtx = ctx.annotationList()
@@ -194,7 +194,7 @@ class Interpreter {
         if ctx.FloatLiteral() != nil { return Float(text.replaceAll("_", "")) }
         if ctx.DoubleLiteral() != nil { return Double(text.replaceAll("_", "")) }
         if ctx.DecimalLiteral() != nil { return Decimal(string: text.replaceAll("_", "")) }
-        if ctx.CharLiteral() != nil { return text[1] }
+        if ctx.CharLiteral() != nil { return try text.resolveEscapes()[1] }
         if ctx.NULL() != nil { return nil }
         
         //// URLs --- --- TODO
