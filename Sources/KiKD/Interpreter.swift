@@ -197,12 +197,18 @@ class Interpreter {
         if ctx.CharLiteral() != nil { return try text.resolveEscapes()[1] }
         if ctx.NULL() != nil { return nil }
         
-        //// URLs --- --- TODO
-        //// Quantities --- --- TODO
-        //// Ranges --- --- TODO
-        //// Lists --- --- TODO
-        //// Maps --- --- TODO
-        //// Pairs --- --- TODO
+        //// URL --- --- TODO
+        //// Quantity --- --- TODO
+        //// Range --- --- TODO
+        //// List --- --- TODO
+        //// Map --- --- TODO
+        //// Call --- --- TODO
+        //// Version --- --- TODO
+        //// Duration --- --- TODO
+        //// Date --- --- TODO
+        //// LocalDateTime --- --- TODO
+        //// ZonedDateTime --- --- TODO
+        //// Blob --- --- TODO
         
         throw ParseError("Unknown literal \(text)")
     }
