@@ -54,7 +54,10 @@ final class KDTests: XCTestCase {
         XCTAssertEqual("Lemur 23 kilos=52", tag.description)
         
         tag["name"] = "fluffy"
-        XCTAssertEqual("Lemur 23 name=\"fluffy\" kilos=52", tag.description)
+        // print("Lemur 23 " + tag.attributes.format(kvSeparator: " ", keyFormatter: KD.formatter, sorted: true))
+        XCTAssertEqual("Lemur 23 " + tag.attributes.format(pairSeparator: " ",
+                                                           keyFormatter: KD.formatter, valueFormatter: KD.formatter,
+                                                           sorted: true), tag.description)
     }
 
     static var allTests = [
